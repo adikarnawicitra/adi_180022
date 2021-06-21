@@ -1,0 +1,548 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="MkDocs Material Boilerplate (Starter Kit) - Deploy documentation to hosting platforms (Netlify, GitHub Pages, GitLab Pages, and AWS Amplify Console) with Docker, pipenv, and GitHub Actions.">
+      
+      
+      
+        <meta name="author" content="peaceiris">
+      
+      
+        <link rel="canonical" href="https://mkdocs.peaceiris.com/error/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+    
+     
+        <title>Komputasi Numerik</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="manifest" href="../manifest.json" crossorigin="use-credentials">
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+   <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+      
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="MkDocs Material Boilerplate" class="md-header__button md-logo" aria-label="MkDocs Material Boilerplate" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+           KOMPUTASI NUMERIK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Errors in Numerical Computations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/peaceiris/mkdocs-material-boilerplate/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ADI KARNA WICITRA
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="MkDocs Material Boilerplate" class="md-nav__button md-logo" aria-label="MkDocs Material Boilerplate" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Komputasi Numerik
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/peaceiris/mkdocs-material-boilerplate/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+     <ul class="md-nav__list" data-md-scrollfix>
+    
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+
+        <li class="md-nav__item md-nav__item--active">
+          <label class="md-nav__link md-nav__link--active" for="__toc">
+            Errors in Numerical Computations
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+      
+          <a href="error.html" class="md-nav__link md-nav__link--active">
+            Errors in Numerical Computations
+          </a>
+
+        <li class="md-nav__item">
+          <a href="../difrensiasi/difrensiasi.html" class="md-nav__link">
+           Numerical Differentiation
+          </a>
+        </li> 
+
+         <li class="md-nav__item">
+          <a href="../index.html" class="md-nav__link">
+            Numerical Integration
+          </a>
+        </li> 
+      
+        <li class="md-nav__item">
+          <a href="../aljabar/aljabar.html" class="md-nav__link">
+           Numerical Solution of System of Linear Algebraic Equations
+          </a>
+        </li>
+
+
+        <li class="md-nav__item">
+          <a href="../diferensial/diferensial.html" class="md-nav__link">
+          Numerical Solution Of Ordinary Differential Equations
+          </a>
+        </li>
+  
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kesalahan_dalam_perhitungan_numerik" class="md-nav__link">
+    Kesalahan dalam perhitungan numerik
+  </a>
+  
+    <nav class="md-nav" aria-label="Kesalahan dalam perhitungan numerik">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error_numerik" class="md-nav__link">
+    Error Numerik
+  </a>
+  
+</li>
+
+          <li class="md-nav__item">
+  <a href="#Algoritma_menggunakan_metode_bisection" class="md-nav__link">
+    Algoritma menggunakan metode bisection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penerapan_code_program_menggunakan_python" class="md-nav__link">
+    Penerapan code program menggunakan python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output_yang_dihasilkan" class="md-nav__link">
+    Output yang dihasilkan :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penerapan_code_program_menggunakan_python_yang_kedua" class="md-nav__link">
+    Penerapan code program menggunakan python yang kedua :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output_yang_dihasilkan_1" class="md-nav__link">
+    Output yang dihasilkan :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/peaceiris/mkdocs-material-boilerplate/edit/master/docs_sample/error.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+              
+                <h3 id="kesalahan_dalam_perhitungan_numerik"><strong>Kesalahan dalam perhitungan numerik</strong><a class="headerlink" href="#kesalahan_dalam_perhitungan_numerik" title="Permanent link">&para;</a></h3>
+<p>Error(galat) dalam metode numerik merupakan selisih yang diperoleh antara nilai sebenarnya dengan nilai yang dihasilkan dari metode numerik. Dalam metode numerik, hasil yang didapatkan bukanlah hasil yang sama persis dengan nilai sebenarnya. Akan selalu ada selisih, dikarenakan hasil yang diperoleh dengan metode numerik adalah hasil yang didapat dengan proses iterasi (loop) agar mendekati nilai sebenarnya. meskipun demikian bukan berarti hasil yang diperoleh dari metode numerik tersebut salah, karena error tersebut dapat ditekan sekecil mungkin hingga hasil yang didapat sangat mendekati nilai sebenarnya atau bisa dikatakan kesalahan mendekati nol.</p>
+<p>Metode numerik adalah teknik pemecahan masalah yang menggunakan operasi aritmatika (yaitu operasi penjumlahan, pengurangan, perkalian, dan pembagian) untuk mengungkapkan masalah secara matematis. Metode ini digunakan karena banyak masalah matematika yang tidak dapat diselesaikan dengan menggunakan metode analitik. Bahkan dengan solusi analitik, prosesnya pun seringkali cukup rumit dan memakan waktu, sehingga efisiensinya rendah.</p>
+<p>Perhitungan dalam metode numerik  merupakan perhitungan dengan mengulang perhitungan dengan terus-menerus untuk mendapatkan hasil yang mendekati nilai penyelesaian yang akurat(exact). Dengan cara ini tentunya setiap nilai yang dihitung akan memiliki nilai error. Dalam analisis metode numerik, kesalahan ini menjadi sangat penting. Karena kesalahan penggunaan algoritma pendekatan akan mengakibatkan nilai kesalahan yang besar, hal ini tentunya tidak diharapkan. Oleh karena itu, metode analisis selalu membahas tingkat kesalahan dan tingkat kecepatan pemrosesan yang akan terjadi.[1]</p>
+<h4 id="error_numerik">Error Numerik<a class="headerlink" href="#error_numerik" title="Permanent link">&para;</a></h4>
+<p>Kesalahan numerik merupakan error yang disebabkan oleh proses pendekatan atau hampiran. Berikut merupakan faktor-faktor untuk kesalahan metode numerik, termasuk :</p>
+<ul>
+<li>
+<p><strong>Kesalahan bawaan (*inherent error*)</strong> merupakan kesalahan yang diakibatkan oleh pengukuran,  <em>kesalahan manusia</em> (seperti kesalahan pencatatan) atau tidak memahami hukum fisika dari data  pengukuran. </p>
+</li>
+<li>
+<p><strong>Kesalahan pembulatan (*rounding*)</strong> merupakan kesalahan yang disebabkan karena pembulatan. Contoh: 3.142857143... menjadi 3.14. </p>
+</li>
+<li>
+<p><strong>Kesalahan pemotongan (*Chopping*)</strong> merupakan kesalahan yang diakibatkan ketika jumlah angka efektif dikurangi. Contoh : 0.6666666... menjadi 0.66.[2]</p>
+</li>
+</ul>
+<p>​Bilangan berbentuk pecahan disebut dengan istilah Angka signifikan, yaitu angka-angka yang terdapat                 dalam pecahan yang mempunyai pengaruh terhadap perhitungan. Angka signifikan tersebut antara lain : </p>
+<ol>
+<li>
+<p>yaitu Angka 1 sampai 9. </p>
+</li>
+<li>
+<p>Abaikanlah angka 0 setelah koma sebelum angka 1 sampai 9. </p>
+</li>
+</ol>
+<p>Misal : 0,0005813 memiliki 4 (empat) angka penting, dan 0,700124 memiliki 6 (enam) angka penting.</p>
+<p><strong>Metode pengukuran akurasi</strong></p>
+<p><strong>Kesalahan mutlak</strong> atau absolut  suatu angka, pengukuran ataupun perhitungan adalah pembeda antara numerik nilai sebenarnya terhadap nilai pendekatan yang diberikan, atau nilai yang diperoleh dari perhitungan atau hasil pengukuran.</p>
+<p>Rumusnya :</p>
+<p>Kesalahan = Nilai Eksak - Nilai perkiraan
+   <script type="math/tex; mode=display">
+   E=\left| P-P^{\ast }\right|
+   </script>
+   ket :</p>
+<p>E = Error absolut</p>
+<p>P = Nilai Eksak</p>
+<p>P* = Nilai perkiraan</p>
+<p><strong>Kesalahan relatif</strong> merupakan kesalahan mutlak yang dibandingkan dengan nilai eksak yang terjadi. Gunakan rumus berikut untuk menghitung kesalahan relatif:</p>
+<p>
+<script type="math/tex; mode=display">
+   e=\dfrac{E}{P}=\dfrac{|P-P^{\ast }|}{P}
+   </script>
+</p>
+<p>e = Error relatif terhadap eksak</p>
+<p>E = Error absolut</p>
+<p>P = Nilai Eksak</p>
+<p>P*= Nilai perkiraan[3]</p>
+<h4 id="Algoritma_menggunakan_metode_bisection">Algoritma menggunakan metode bisection<a class="headerlink" href="#Algoritma_menggunakan_metode_bisection" title="Permanent link">&para;</a></h4>
+<p>Metode bisection merupakan metode penyelesaian integral numerik sederhana untuk pencarian akar persamaan (metode bagi dua) . Berikut ini merupakan langkah-langkah algoritma bisection :</p>
+<p>```
+   1.Tentukan fungsi (x) dan nilai error</p>
+<p>2.Tentukan  titik a dan b pada fungsi tersebut</p>
+<p>3.Tentukan titik tengah (c) dengan membagi dua antara penjumlahan titik a dan b</p>
+<div class="codehilite"><pre><span></span><code>         c=a+b/2
+</code></pre></div>
+
+<p>4.Masukkan titik a, b dan c pada fungsi x</p>
+<div class="codehilite"><pre><span></span><code>        f(a),f(b),f(c)
+</code></pre></div>
+
+<p>5.kalikan f(a) dan f(c),kemudian jadikan nilai mutlak</p>
+<div class="codehilite"><pre><span></span><code>        |f(a,c)|=f(a)xf(c)
+</code></pre></div>
+
+<p>6.jika nilai mutlak f(a,c) &lt; nilai error maka perulangan berhenti</p>
+<p>7.akan tetap jika &gt; nilai error maka tentukan lagi apakah nilai f(a,c) yang diperoleh    &gt; atau &lt; dari 0</p>
+<p>8.jika nilai f(a,c) &lt; 0 maka titik b menjadi titik c, jika nilai f(a,c) &gt; 0 maka titik    a menjadi titik c</p>
+<p>9.Ulangi tahap tersebut sampai nilai mutlak dari f(a,c) &lt;  nilai error
+   ```</p>
+<h4 id="penerapan_code_program_menggunakan_python">Penerapan code program menggunakan python<a class="headerlink" href="#penerapan_code_program_menggunakan_python" title="Permanent link">&para;</a></h4>
+<p>Berikut ini merupakan code program menggunakan metode bisection</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">4</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">toleransi</span> <span class="o">=</span> <span class="mf">0.001</span>
+    <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;a dan b tidak mengandung akar&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="o">&gt;</span><span class="n">toleransi</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;akar yang mendekati: &#39;</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;masukkan nilai a: &#39;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;masukkan nilai b: &#39;</span><span class="p">))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;akar persamaan x = &#39;</span><span class="p">,</span><span class="nb">format</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">x</span><span class="p">))</span>
+</code></pre></div>
+
+<h4 id="output_yang_dihasilkan">Output yang dihasilkan :<a class="headerlink" href="#output_yang_dihasilkan" title="Permanent link">&para;</a></h4>
+<p>Ketika menjalankan program diatas, kita akan mengimputkan nilai a dan nilai b, maka akan mendapatkan nilai akar persamaan dari metode bagi dua sebagai berikut :</p>
+<div class="codehilite"><pre><span></span><code>masukkan nilai a: 0
+masukkan nilai b: 10
+akar yang mendekati:  5.0
+akar yang mendekati:  2.5
+akar yang mendekati:  1.25
+akar yang mendekati:  1.875
+akar yang mendekati:  2.1875
+akar yang mendekati:  2.03125
+akar yang mendekati:  1.953125
+akar yang mendekati:  1.9921875
+akar yang mendekati:  2.01171875
+akar yang mendekati:  2.001953125
+akar yang mendekati:  1.9970703125
+akar yang mendekati:  1.99951171875
+akar yang mendekati:  2.000732421875
+akar yang mendekati:  2.0001220703125
+
+akar persamaan x =  2.00
+</code></pre></div>
+
+<h4 id="penerapan_code_program_menggunakan_python_yang_kedua">Penerapan code program menggunakan python yang kedua :<a class="headerlink" href="#penerapan_code_program_menggunakan_python_yang_kedua" title="Permanent link">&para;</a></h4>
+<p>mencari pendekatan fungsi e^x-cos(x) untuk x=1 dan batas = 0.001</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span> 
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">cos</span>
+
+<span class="k">def</span> <span class="nf">exponensial</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">hasil</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">hasil</span> <span class="o">=</span> <span class="n">hasil</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="n">i</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">hasil</span>
+
+<span class="n">oldval</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">trueval</span> <span class="o">=</span> <span class="n">exp</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;nilai asli :&quot;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%.8f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">trueval</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;faktor&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;estimasi&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;true error&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;error relatif&#39;</span><span class="p">)</span>
+<span class="n">ca</span> <span class="o">=</span><span class="mi">1</span>
+<span class="k">while</span><span class="p">(</span><span class="n">ca</span><span class="o">&gt;</span><span class="mf">0.001</span><span class="p">):</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">exponensial</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ct</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">val</span><span class="o">-</span><span class="n">trueval</span><span class="p">)</span><span class="o">/</span><span class="n">trueval</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+    <span class="n">ca</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">val</span><span class="o">-</span><span class="n">oldval</span><span class="p">)</span><span class="o">/</span><span class="n">val</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+    <span class="n">oldval</span> <span class="o">=</span> <span class="n">val</span>
+
+    <span class="nb">print</span> <span class="p">(</span><span class="n">n</span> <span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%.8f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">val</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%.8f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">ct</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%.8f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">ca</span><span class="p">)</span>
+    <span class="n">n</span><span class="o">+=</span><span class="mi">1</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;nilai yang mendekati :&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%.8f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">val</span><span class="p">,</span><span class="s2">&quot;dengan error&quot;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">%.8f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">ct</span><span class="p">)</span>
+</code></pre></div>
+
+<h4 id="output_yang_dihasilkan_1">Output yang dihasilkan :<a class="headerlink" href="#output_yang_dihasilkan_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>nilai asli : 2.17797952
+faktor   estimasi    true error      error relatif
+1    0.45969769      78.89338769     100.00000000
+2    1.45969769      32.97927373     68.50733573
+3    1.95969769      10.02221675     25.51413932
+4    2.12636436      2.36986442      7.83810478
+5    2.16803103      0.45677634      1.92186671
+6    2.17636436      0.07415872      0.38290157
+7    2.17775325      0.01038912      0.06377623
+8    2.17795166      0.00127918      0.00911006
+9    2.17797646      0.00014043      0.00113874
+10   2.17797922      0.00001391      0.00012653
+nilai yang mendekati : 2.17797922 dengan error 0.00001391
+</code></pre></div>
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:Referensi">
+<p>http://dina_indarti.staff.gunadarma.ac.id/Downloads/files/28385/Pendahuluan+Metode+Numerik.pdf&#160;<a class="footnote-backref" href="#fnref:Referensi" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:Referensi">
+<p>https://bookdown.org/moh_rosidi2610/Metode_Numerik/numericmethod.html#numerror&#160;<a class="footnote-backref" href="#fnref:Referensi" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:Referensi">
+<p>http://achmad_fahrurozi.staff.gunadarma.ac.id/Downloads/files/67650/CAPTURE+1+-+Pengertian+Metode+Numerik.pdf&#160;<a class="footnote-backref" href="#fnref:Referensi" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; 2019 peaceiris
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/peaceiris" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/piris314en" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
